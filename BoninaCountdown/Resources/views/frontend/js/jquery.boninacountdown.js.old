@@ -1,0 +1,57 @@
+
+;(function (window, document, undefined) {
+			'use strict';
+			var controllerURL = 'http://192.168.33.10/shopware/frontend/Countdown';		
+			var intervalfn;
+			
+			function paddZero(num) {
+				if (num < 10) {
+					num = "0" + num;
+				}
+				return num;
+			}
+			
+			
+			function countdown(ende) {
+				var verbleibend = ende - Date.now();
+				var sekunden = verbleibend / 1000;
+				var minutes = Math.floor(sekunden / 60);
+				var sekunden = Math.floor(sekunden % 60);	
+				if (verbleibend <= 0) {
+					clearInterval(intervalfn);
+					$('#dvData').html(" ");
+					$('#dvData').css('visibility', 'hidden');
+					$('#hinweistext').css('visibility', 'hidden');				
+				} 
+				else {
+					$('#dvData').html(paddZero(minutes) + ":" + paddZero(sekunden));				
+				}
+			}
+			
+			var countdownMilisekunden = {$auswahl} * 1000;
+			
+			
+			function startCountDown(remainingCountdown) {
+				var jetzt = Date.now(); // milisekunden
+				var ende = jetzt + remainingCountdown;					 				
+				intervalfn = setInterval(function(){ 
+					countdown(ende)}
+				, 100); 
+			}
+			
+			$.ajax({
+				url: controllerURL,
+				type: "GET",
+				dataType: "application/json; charset=utf-8",
+				success: function (data) {
+					var response = $(JSON.parse(data));
+					if (response.active) {
+						if (response.remainingTime == 0) {
+						
+						} else {
+							startCountdown(response.remainingTime);
+						}
+					}
+				}
+			});
+		})(window, document);	

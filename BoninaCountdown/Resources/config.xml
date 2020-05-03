@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+		<!--  Form extension and Validation:
+			https://developers.shopware.com/developers-guide/attribute-system/#shopware.attribute.form  
+			Here: https://developers.shopware.com/developers-guide/attribute-system/ #Add own backend validation
+			http://docs.sencha.com/extjs/4.1.3/#!/api/Ext.form.field.VTypes
+			
+			Checkbox is not checked on true value.
+			-->
+		<element type="text" scope="locale">
+            <name>hinweistext</name>			
+            <label lang="de">Hinweistext</label>
+            <label lang="en">Warning text</label>
+            <description lang="de">Hinweistext</description>
+            <description lang="en">Warning text</description>
+        </element>
+		
+		<element required="true" type="text" scope="locale">
+            <name>ipAdresseFurWartungModus</name>
+            <label lang="de">Von der Sperrung ausgeschlossene IP</label>
+            <label lang="en">IP address</label>
+            <description lang="de"></description>
+            <description lang="en"></description>
+        </element>
+		
+		<element type="number" scope="locale">
+            <name>minuten</name>
+            <label lang="de">Minuten</label>
+            <label lang="en">Minutes</label>
+            <description lang="de">Minuten</description>
+            <description lang="en">Minutes</description>
+        </element>
+		
+		<element type="number" scope="locale">
+            <name>sekunden</name>
+            <label lang="de">Sekunden</label>
+            <label lang="en">Seconds</label>
+            <description lang="de">Sekunden</description>
+            <description lang="en">Seconds</description>
+        </element>
+		
+		<element type="interval">
+			<name>auswahl</name>
+            <label lang="de">Zeit auswahl</label>
+            <label lang="en">Interval</label>
+		</element>
+		
+		<element type="boolean">
+			<name>aktiv</name>
+            <label lang="de">Aktiv</label>
+            <label lang="en">Active</label>
+			<!--<options>
+				<xtype>checkbox</xtype>
+			</options> -->
+		</element>
+		
+		<element type="color">
+			<name>hinweistextFarbe</name>
+            <label lang="de">Farbe</label>
+            <label lang="en">Color</label>
+		</element>
+		
+		<element type="number">
+			<name>countdownEndeServer</name>
+            <label lang="de">countdownEnde (Server miliseconds)</label>
+            <label lang="en">countdown End (Server miliseconds)</label>
+		</element>
+	
+    </elements>
+</config>
